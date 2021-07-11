@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <robot name="m2wr" xmlns:xacro="http://www.ros.org/wiki/xacro">
   
-  <xacro:include filename="$(find m2wr_description)/urdf/materials.xacro" />
-  <xacro:include filename="$(find m2wr_description)/urdf/m2wr.gazebo" />
-  <xacro:include filename="$(find m2wr_description)/urdf/macros.xacro" />
+  <xacro:include filename="$(find medicalDrone)/urdf/materials.xacro" />
+  <xacro:include filename="$(find medicalDrone)/urdf/m2wr.gazebo" />
+  <xacro:include filename="$(find medicalDrone)/urdf/macros.xacro" />
   
   <link name="link_chassis">
     <!-- pose and inertial -->
