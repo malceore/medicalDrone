@@ -13,3 +13,5 @@ To launch an empty Gazebo simulation world(Note, all my simulations start paused
 To launch a simulation populated by randomly distributed soda cans run(Note, in my experience Gazebos model server is broken, but you can download the models locally and place them in the Gazebo model directory): roslaunch medicalDrone soda_cans.launch
 
 To spawn a two wheeled robot into your simulation run: roslaunch medicalDrone two_wheeled.launch
+
+You can control the robot by launching the publisher and listeners: rosrun medicalDrone scripts/command_node.py and rosrun medicalDrone scripts/two_wheel_driver.py
