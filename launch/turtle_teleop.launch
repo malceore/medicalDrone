@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+    <!-- rosrun turtlesim turtlesim_node -->
+    <node pkg="turtlesim" name="turtle_sim" type="turtlesim_node" output="screen" />
+    <!-- python scripts/turtle_teleop.py -->
+    <node pkg="medicalDrone" name="turtle_teleop" type="turtle_teleop.py" output="screen" />
+</launch>
+
+
+

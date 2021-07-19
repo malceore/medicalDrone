@@ -15,3 +15,7 @@ To launch a simulation populated by randomly distributed soda cans run(Note, in 
 To spawn a two wheeled robot into your simulation run: roslaunch medicalDrone two_wheeled.launch
 
 You can control the robot by launching the publisher and listeners: rosrun medicalDrone scripts/command_node.py and rosrun medicalDrone scripts/two_wheel_driver.py
+
+## Running turtle launch
+To output a 2d user interface with a turtle please run the below commands, it sohuld output keys that you canuse to control the velocity of the turtle.
+roslaunch medicalDrone turtle_teleop.launch

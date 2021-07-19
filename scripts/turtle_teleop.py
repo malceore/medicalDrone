@@ -20,7 +20,7 @@ def talker():
 	global last_twist
         last_twist=twist
 	#pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
-	pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+	pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=1)
 	rospy.init_node('keyb_commander', anonymous=True)
 	rate = rospy.Rate(10) # 10hz
 	print(msg)
@@ -68,3 +68,4 @@ try:
 	talker()
 except rospy.ROSInterruptException:
 	pass
+
