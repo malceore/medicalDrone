@@ -11,7 +11,7 @@
       <diffuse>0.5 0.5 0.5 1</diffuse>
       <specular>0.1 0.1 0.1 1</specular>
       <attenuation>
-        <range>20</range>
+        <range>30</range>
         <constant>0.5</constant>
         <linear>0.01</linear>
         <quadratic>0.001</quadratic>
@@ -64,9 +64,9 @@
       </model>
       <pose>0 0 0 0 0 0</pose>
       <box>
-        <size>2 2 0.01</size>
+        <size>10 10 0.01</size>
       </box>
-      <model_count>10</model_count>
+      <model_count>15</model_count>
       <distribution>
         <type>random</type>
       </distribution>
