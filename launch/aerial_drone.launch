@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-    <param name="robot_description" command="cat '$(find medicalDrone)/robots/zipline_drone/new.urdf'" />
-
-    <arg name="x" default="0"/>
-    <arg name="y" default="0"/>
-    <arg name="z" default="0.5"/>
-
-    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
-          args="-urdf -param robot_description -model drone -x $(arg x) -y $(arg y) -z $(arg z)"/>
-
+    <include file="$(find medicalDrone)/launch/spawn_sdf.launch">
+        <arg name="robot_name" value="drone" />
+        <arg name="x" value="0.0" />
+        <arg name="y" value="0.0" />
+        <arg name="z" value="1.0" />
+        <arg name="roll" value="0"/>
+        <arg name="pitch" value="0"/>
+        <arg name="yaw" value="0.0" />
+        <arg name="sdf_robot_file" value="$(find medicalDrone)/models/drone/model.sdf" />
+    </include>
 </launch>
