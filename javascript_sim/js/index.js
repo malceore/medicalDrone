@@ -5,15 +5,15 @@ let thingsToLoad = [
 
 let h = hexi(512, 512, setup, thingsToLoad, load);
 h.fps = 16;
-version = 0.1;
+version = 0.8;
 h.scaleToWindow();
 h.start();
 let target;
 let obstacles = [];
 
+DEBUG = true;
 DRONE_SPEED=5;
 CURRENT_MISSION=[];
-DEBUG = false;
 MISSION_1 = [
     {x: 50, y: 50},
     {x: 200, y: 100},
@@ -24,7 +24,7 @@ MISSION_1 = [
 MISSION_2 = [
     {x: 50, y: 50},
     {x: 50, y: 450},
-    {x: 450, y: 450},
+    {x: 455, y: 440},
     {x: 455, y: 45, drop: true},
     {x: 50, y: 50},
     {x: 50, y: 450},
@@ -68,13 +68,13 @@ function setup() {
     h.drone = h.sprite("res/images/drone.png", h.canvas.width/2+10, h.canvas.height/2-10);
     h.drone.scale.x = h.drone.scale.y = 0.10;
     h.drone.pivotY = h.drone.pivotX = 0.5;
-    h.drone.tint = 0x22aa00;
+    h.drone.tint = 0xff8000;
 
     target = h.circle(26, "blue", "black", 0, 0, -27);
     target.pivotX = target.pivotY = 0.5;
     target.visible = DEBUG;
 
-    version = h.text("Version 0.6", "14px puzzler", "black");
+    version = h.text("Version " + version, "14px puzzler", "black");
     version.x = 440;
     version.y = 490;
 
