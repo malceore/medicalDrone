@@ -23,7 +23,6 @@ def talker():
 	pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=1)
 	rospy.init_node('keyb_commander', anonymous=True)
 	rate = rospy.Rate(10) # 10hz
-	print(msg)
 	while not rospy.is_shutdown():
                 last_k = None
 		key_timeout = 0.6 # Seconds
@@ -47,7 +46,6 @@ def talker():
 		elif k == '\x03': # To detect CTRL-C
 			break
 		if k != last_k:
-                        print("publishing!")
 			last_k = k
 			pub.publish(twist)
 			rate.sleep()

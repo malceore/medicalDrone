@@ -4,6 +4,8 @@
     <node pkg="turtlesim" name="turtle_sim" type="turtlesim_node" output="screen" />
     <!-- python scripts/turtle_teleop.py -->
     <node pkg="medicalDrone" name="turtle_teleop" type="turtle_teleop.py" output="screen" />
+    <!-- python scripts/turtle_teleop.py
+    <node pkg="medicalDrone" name="turtle_control" type="gotogoal.py" output="screen" />-->
 </launch>
 
 

@@ -13,7 +13,6 @@ j k l
 ,
 CTRL-C to quit
 """
-
 def talker():
 	global command
 	global last_command

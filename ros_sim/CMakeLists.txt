@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.2.2)
 project(medicalDrone)
 
 ## Add support for C++11, supported in ROS Kinetic and newer
@@ -27,3 +27,4 @@ catkin_install_python(PROGRAMS
   scripts/command_node.py scripts/drive_node.py scripts/two_wheel_driver.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+
