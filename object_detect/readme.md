@@ -10,6 +10,8 @@ To run script you must first install these requirements.
 
 1. Download the YOLO model to the same folder as `FirstDetection.py`: [YOLO resnet model download link](https://github.com/OlafenwaMoses/ImageAI/releases/download/essentials-v5/resnet50_coco_best_v2.1.0.h5/)
 
+1. You will need to uncompress the download. For mac, download and install "The Unarchiver" application if you don't currently have a program to handle this.
+
 1. Python 3.7 is required because 3.8 is not supported by TensorFlow. Once you know your `python --version` is a 3.7.x version you can run these 3 pip installations:
 
 1. ```pip install tensorflow==2.4.0```
