@@ -1,11 +1,11 @@
 let thingsToLoad = [
     "res/images/drone.png",
-    "res/maps/map.png"
+    "res/maps/map2.png"
 ];
 
 let h = hexi(512, 512, setup, thingsToLoad, load);
 h.fps = 16;
-version = 0.8;
+version = 1.1;
 h.scaleToWindow();
 h.start();
 let target;
@@ -14,22 +14,21 @@ let obstacles = [];
 DEBUG = true;
 DRONE_SPEED=5;
 CURRENT_MISSION=[];
+HOME_BASE = {x: 275, y: 236};
 MISSION_1 = [
     {x: 50, y: 50},
     {x: 200, y: 100},
     {x: 450, y: 200},
     {x: 450, y: 450},
-    {x: 50, y: 50}    
+    {x: 50, y: 50},
+    HOME_BASE
 ];
 MISSION_2 = [
     {x: 50, y: 50},
     {x: 50, y: 450},
     {x: 455, y: 440},
     {x: 455, y: 45, drop: true},
-    {x: 50, y: 50},
-    {x: 50, y: 450},
-    {x: 450, y: 450},
-    {x: 450, y: 50}
+    HOME_BASE
 ];
 
 function log(str){
@@ -56,8 +55,8 @@ function createLaser(length=110){
 }
 
 function setup() {
-    map = h.sprite("res/maps/map.png");
-    map.alpha = 0.50;
+    map = h.sprite("res/maps/map2.png");
+    map.alpha = 0.70;
 
     h.laserA = createLaser();
     h.laserB = createLaser();
@@ -65,10 +64,10 @@ function setup() {
     h.laserD = createLaser(80);
     h.laserE = createLaser(80);
 
-    h.drone = h.sprite("res/images/drone.png", h.canvas.width/2+10, h.canvas.height/2-10);
+    h.drone = h.sprite("res/images/drone.png", HOME_BASE.x, HOME_BASE.y);
     h.drone.scale.x = h.drone.scale.y = 0.10;
     h.drone.pivotY = h.drone.pivotX = 0.5;
-    h.drone.tint = 0xff8000;
+    h.drone.tint = 0xffb366;
 
     target = h.circle(26, "blue", "black", 0, 0, -27);
     target.pivotX = target.pivotY = 0.5;
@@ -110,20 +109,29 @@ function dropPackage(){
 
 function drawObstacles(){
     obstacles.push(h.circle(46, "gray", "black", 0, 110, 110));
-    obstacles.push(h.circle(46, "gray", "black", 0, 270, 210));
-    obstacles.push(h.circle(46, "gray", "black", 0, 100, 450));        
+    obstacles.push(h.circle(46, "gray", "black", 0, 295, 180));
+    obstacles.push(h.circle(46, "gray", "black", 0, 100, 350));        
     obstacles.push(h.circle(46, "gray", "black", 0, 350, 350));
+}
+
+function completed(){
+
 }
 
 function mission() {
     navigateDrone();
-    if (h.distance(h.drone, target) < 5 && h.increment < CURRENT_MISSION.length){
-        if (CURRENT_MISSION[h.increment].drop){
-            dropPackage();
+    if (h.distance(h.drone, target) < 5 ){//&& h.increment < CURRENT_MISSION.length){
+        if(h.increment >= CURRENT_MISSION.length){
+            log("Landed safetly!");
+            h.state = completed;
+        }else{
+            if (CURRENT_MISSION[h.increment].drop){
+                dropPackage();
+            }
+            target.x = CURRENT_MISSION[h.increment].x;
+            target.y = CURRENT_MISSION[h.increment].y; 
+            h.increment++;
         }
-        target.x = CURRENT_MISSION[h.increment].x;
-        target.y = CURRENT_MISSION[h.increment].y; 
-        h.increment++;
     }
 }
 
@@ -204,7 +212,6 @@ function navigateDrone(){
     h.laserC.x = h.drone.x;
     h.laserC.y = h.drone.y;
     h.laserC.rotation = h.drone.rotation+0.3;
-
     h.laserD.x = h.drone.x;
     h.laserD.y = h.drone.y;
     h.laserD.rotation = h.drone.rotation+0.55;
