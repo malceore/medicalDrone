@@ -14,7 +14,7 @@ let obstacles = [];
 DEBUG = true;
 DRONE_SPEED=5;
 CURRENT_MISSION=[];
-HOME_BASE = {x: 275, y: 236};
+HOME_BASE = {x: 285, y: 246};
 MISSION_1 = [
     {x: 50, y: 50},
     {x: 200, y: 100},
@@ -104,12 +104,12 @@ function setup() {
 }
 
 function dropPackage(){
-    h.circle(16, "red", "black", 2, h.drone.x, h.drone.y);
+    h.rectangle(16, 16, "red", "black", 2, h.drone.x, h.drone.y);
 }
 
 function drawObstacles(){
     obstacles.push(h.circle(46, "gray", "black", 0, 110, 110));
-    obstacles.push(h.circle(46, "gray", "black", 0, 295, 180));
+    obstacles.push(h.circle(46, "gray", "black", 0, 315, 180));
     obstacles.push(h.circle(46, "gray", "black", 0, 100, 350));        
     obstacles.push(h.circle(46, "gray", "black", 0, 350, 350));
 }
